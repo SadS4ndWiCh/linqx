@@ -1,6 +1,8 @@
-import Head from 'next/head'
-export default function Home() {
+import { Button } from '@/components/ui/Button'
+export default function App() {
   return (
-    <h1>Hello World</h1>
+    <div>
+      <h1>Coming soon...</h1>
+    </div>
   )
 }
