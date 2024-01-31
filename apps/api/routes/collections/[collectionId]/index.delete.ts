@@ -1,4 +1,4 @@
-import { eq } from "drizzle-orm";
+import { and, eq } from "drizzle-orm";
 
 import { db } from "../../../db/connection";
 import { collections } from "../../../db/schemas";
@@ -13,7 +13,14 @@ export default defineEventHandler(async (event) => {
   try {
     await db
       .delete(collections)
-      .where(eq(collections.id, collectionId));
+      .where(
+        and(
+          eq(collections.userId, event.context.user.id),
+          eq(collections.id, collectionId)
+        )
+      );
+
+    return setResponseStatus(event, 200);
   } catch (err) {
     console.log("[DELETE_COLLECTION]: Failed to delete collection:", err);
 
