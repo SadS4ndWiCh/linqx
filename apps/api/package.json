@@ -4,9 +4,22 @@
     "prepare": "nitropack prepare",
     "dev": "nitropack dev",
     "build": "nitropack build",
-    "preview": "node .output/server/index.mjs"
+    "preview": "node .output/server/index.mjs",
+
+    "db:generate": "drizzle-kit generate:sqlite",
+    "db:push": "drizzle-kit push:sqlite"
   },
   "dependencies": {
-    "nitropack": "latest"
+    "@libsql/client": "^0.4.3",
+    "@lucia-auth/adapter-drizzle": "^1.0.0",
+    "drizzle-orm": "^0.29.3",
+    "lucia": "^3.0.1",
+    "nitropack": "latest",
+    "oslo": "^1.0.3",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.1",
+    "drizzle-kit": "^0.20.13"
   }
 }
