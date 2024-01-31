@@ -1,0 +1,6 @@
+.nitro
+.cache
+.output
+
+*.log*
+dist
