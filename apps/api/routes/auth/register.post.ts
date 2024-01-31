@@ -15,7 +15,7 @@ const registerSchema = z.object({
 export default defineEventHandler(async (event) => {
   const bodyValidated = registerSchema.safeParse(await readBody(event));
   if (!bodyValidated.success) {
-    return await event.respondWith(new Response(null, { status: 400 }));
+    return setResponseStatus(event, 400);
   }
 
   const userId = generateId(15);
@@ -43,6 +43,6 @@ export default defineEventHandler(async (event) => {
 
     console.log("[REGISTER]: Failed to register a new account:", err);
 
-    return event.respondWith(new Response(null, { status: 500 }));
+    return setResponseStatus(event, 500);
   }
 });

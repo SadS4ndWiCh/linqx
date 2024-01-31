@@ -13,7 +13,7 @@ const loginSchema = z.object({
 export default defineEventHandler(async (event) => {
   const bodyValidated = loginSchema.safeParse(await readBody(event));
   if (!bodyValidated.success) {
-    return await event.respondWith(new Response(null, { status: 400 }));
+    return setResponseStatus(event, 400);
   }
 
   try {
@@ -41,6 +41,6 @@ export default defineEventHandler(async (event) => {
   } catch (err) {
     console.log("[LOGIN]: Failed to login:", err);
 
-    return event.respondWith(new Response(null, { status: 500 }));
+    return setResponseStatus(event, 500);
   }
 });
