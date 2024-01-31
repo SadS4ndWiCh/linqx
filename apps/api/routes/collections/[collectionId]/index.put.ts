@@ -1,12 +1,8 @@
-import { z } from "zod";
 import { eq } from "drizzle-orm";
+import { updateCollectionSchema } from "@linqx/shared";
 
 import { db } from "../../../db/connection";
 import { collections } from "../../../db/schemas";
-
-const updateCollectionSchema = z.object({
-  name: z.string()
-});
 
 export default defineEventHandler(async (event) => {
   if (!event.context.user) {

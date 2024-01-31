@@ -1,12 +1,8 @@
-import { z } from "zod";
 import { and, eq } from "drizzle-orm";
+import { updateLinkSchema } from "@linqx/shared";
 
 import { db } from "../../../../../db/connection";
 import { links } from "../../../../../db/schemas";
-
-const updateLinkSchema = z.object({
-  url: z.string().url()
-});
 
 export default defineEventHandler(async (event) => {
   if (!event.context.user) {

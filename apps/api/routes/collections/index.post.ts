@@ -1,19 +1,15 @@
-import { z } from "zod";
 import { generateId } from "lucia";
+import { newCollectionSchema } from "@linqx/shared";
 
 import { db } from "../../db/connection";
 import { collections } from "../../db/schemas";
-
-const collectionSchema = z.object({
-  name: z.string().min(1).max(30),
-})
 
 export default defineEventHandler(async (event) => {
   if (!event.context.user) {
     return setResponseStatus(event, 401);
   }
 
-  const bodyValidated = collectionSchema.safeParse(await readBody(event));
+  const bodyValidated = newCollectionSchema.safeParse(await readBody(event));
   if (!bodyValidated.success) {
     return setResponseStatus(event, 400);
   }

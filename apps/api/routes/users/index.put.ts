@@ -1,12 +1,8 @@
-import { z } from "zod";
 import { eq } from "drizzle-orm";
+import { updateUserSchema } from "@linqx/shared";
 
 import { db } from "../../db/connection";
 import { users } from "../../db/schemas";
-
-const updateUserSchema = z.object({
-  username: z.string().min(3).max(30),
-});
 
 export default defineEventHandler(async (event) => {
   if (!event.context.user) {

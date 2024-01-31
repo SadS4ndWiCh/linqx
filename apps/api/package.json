@@ -16,7 +16,8 @@
     "lucia": "^3.0.1",
     "nitropack": "latest",
     "oslo": "^1.0.3",
-    "zod": "^3.22.4"
+    "zod": "^3.22.4",
+    "@linqx/shared": "workspace:*"
   },
   "devDependencies": {
     "dotenv": "^16.4.1",

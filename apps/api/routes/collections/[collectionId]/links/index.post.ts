@@ -1,19 +1,15 @@
 import { generateId } from "lucia";
-import { z } from "zod";
+import { newLinkSchema } from "@linqx/shared";
 
 import { db } from "../../../../db/connection";
 import { links } from "../../../../db/schemas";
-
-const linkSchema = z.object({
-  url: z.string().url()
-});
 
 export default defineEventHandler(async (event) => {
   if (!event.context.user) {
     return setResponseStatus(event, 401);
   }
 
-  const bodyValidated = linkSchema.safeParse(await readBody(event));
+  const bodyValidated = newLinkSchema.safeParse(await readBody(event));
   if (!bodyValidated.success) {
     return setResponseStatus(event, 400);
   }
