@@ -3,5 +3,8 @@
   "version": "0.0.1",
   "description": "Organize and manage your links easily",
   "author": "Caio Vinícius <caiocamargo.ct@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "shared": "pnpm --filter shared"
+  }
 }
