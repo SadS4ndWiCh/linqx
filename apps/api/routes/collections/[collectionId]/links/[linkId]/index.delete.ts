@@ -30,11 +30,11 @@ export default defineEventHandler(async (event) => {
           eq(links.id, linkId)
         )
       );
-    
-    return setResponseStatus(event, 200);
   } catch (err) {
     console.log("[DELETE_LINK]: Failed to delete link:", err);
 
     return setResponseStatus(event, 500);
   }
+
+  return setResponseStatus(event, 200);
 });

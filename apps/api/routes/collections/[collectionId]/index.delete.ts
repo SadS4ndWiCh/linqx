@@ -19,11 +19,11 @@ export default defineEventHandler(async (event) => {
           eq(collections.id, collectionId)
         )
       );
-
-    return setResponseStatus(event, 200);
   } catch (err) {
     console.log("[DELETE_COLLECTION]: Failed to delete collection:", err);
 
     return setResponseStatus(event, 500);
   }
+
+  return setResponseStatus(event, 200);
 });

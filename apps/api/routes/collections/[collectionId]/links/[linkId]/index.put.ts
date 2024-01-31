@@ -32,4 +32,6 @@ export default defineEventHandler(async (event) => {
 
     return setResponseStatus(event, 500);
   }
+
+  return setResponseStatus(event, 200);
 });
