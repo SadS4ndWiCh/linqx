@@ -5,6 +5,7 @@
   "author": "Caio Vinícius <caiocamargo.ct@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "api": "pnpm --filter api",
     "shared": "pnpm --filter shared"
   }
 }
