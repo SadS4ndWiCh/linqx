@@ -1,14 +1,9 @@
-import { z } from "zod";
 import { eq } from "drizzle-orm";
 import { Argon2id } from "oslo/password";
+import { loginSchema } from "@linqx/shared";
 
 import { db } from "../../db/connection";
 import { users } from "../../db/schemas";
-
-const loginSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(6)
-});
 
 export default defineEventHandler(async (event) => {
   const bodyValidated = loginSchema.safeParse(await readBody(event));

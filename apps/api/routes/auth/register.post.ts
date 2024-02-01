@@ -1,16 +1,10 @@
-import { z } from "zod";
 import { generateId } from "lucia";
 import { Argon2id } from "oslo/password";
 import { LibsqlError } from "@libsql/client";
+import { registerSchema } from "@linqx/shared";
 
 import { db } from "../../db/connection";
 import { users } from "../../db/schemas";
-
-const registerSchema = z.object({
-  username: z.string().min(3).max(30),
-  email: z.string().email(),
-  password: z.string().min(6)
-});
 
 export default defineEventHandler(async (event) => {
   const bodyValidated = registerSchema.safeParse(await readBody(event));
