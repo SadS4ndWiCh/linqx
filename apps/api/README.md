@@ -1,42 +1,21 @@
-# Nitro Minimal Starter
+# 🧀 Linqx API
 
-Look at the [Nitro documentation](https://nitro.unjs.io/) to learn more.
+The API from the linqx application
 
-## Setup
+## 🧶 Running Locally
 
-Make sure to install the dependencies:
-
-```bash
-# npm
-npm install
-
-# yarn
-yarn install
-
-# pnpm
-pnpm install
+1. Setup enviroment variables
+```env
+DATABASE_URL="libsql://..."
+DATABASE_AUTH_TOKEN="auth-token"
 ```
 
-## Development Server
-
-Start the development server on <http://localhost:3000>
-
-```bash
-npm run dev
+2. Push migrations to database
+```sh
+pnpm db:push
 ```
 
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
+3. Run
+```sh
+pnpm dev
 ```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nitro.unjs.io/deploy) for more information.
